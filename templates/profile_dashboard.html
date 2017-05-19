@@ -1,0 +1,22 @@
+{% extends 'dashboard.html' %}
+{% load staticfiles %}
+{% block formblock %}
+    {% if user.is_authenticated %}
+
+
+        {% if user.userprofile.profile_picture.url %}
+            <img src="{{ user.userprofile.profile_picture.url }}" width="150" height="150"/>
+        {% else %}
+            <img src="{% static 'assets/android-desktop.png' %}" width="150" height="150"/>
+        {% endif %}
+         <span>{{ user.email }}</span>
+         <h4>{{ user.username }} welcome to your profile page</h4>
+
+
+        <h3>Instructions</h3>
+        <ul>
+        <li>Click on product to add products</li>
+        <li>Click on giveaways to add a new giveaway</li>
+        </ul>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,130 @@
+{% load staticfiles %}
+<!doctype html>
+<!--
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="{% static 'base/images/android-desktop.png' %}">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="{% static 'base/images/ios-desktop.png' %}">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="{% static 'base/images/favicon.png' %}">
+
+    <link href="{% static 'tellme/feedback.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'base/material.min.css' %}">
+    <link rel="stylesheet" href="{% static 'base/styles.css' %}">
+    <style>
+        #view-source {
+            position: fixed;
+            display: block;
+            right: 0;
+            bottom: 0;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            z-index: 900;
+        }
+        .vertical-right-aligned {
+            transform: rotate(-90deg);
+            transform-origin: 100% 100%;
+            position: fixed;
+            right: 0;
+            top: 50%;
+            z-index: 100;
+            }
+
+
+
+
+    </style>
+    {% block cssblock %}{% endblock %}
+</head>
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+ <button type="button" id="feedback-btn" class="btn btn-info vertical-right-aligned">
+    Feedback <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>
+        </button>
+
+    {% include 'base_header.html' %}
+    <main class="mdl-layout__content">
+        <div class="mdl-layout__tab-panel is-active" id="{{ tab_name }}">
+            {% block contentblock %}{% endblock %}
+        </div>
+        {#        {% include 'base_footer.html' %}#}
+    </main>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="{% static 'js/material.min.js' %}"></script>
+<script>
+    function loginRed() {
+        window.location.href = {% url 'login' %};
+    }
+
+    function logoutRed() {
+        window.location.href = "{% url 'logout' %}";
+    }
+    function dashRed() {
+        window.location.href = "{% url 'accounts:dashboard' %}";
+    }
+
+    function aboutRed() {
+        window.location.href = "{% url 'web:about' %}";
+    }
+    function homeRed() {
+        window.location.href = "{% url 'web:home' %}";
+    }
+    function ContactRed() {
+        window.location.href = "{% url 'web:contact' %}";
+    }
+
+    function giveawaysRed() {
+        window.location.href = "{% url 'products:view_giveaway' %}";
+    }
+
+
+    // A $( document ).ready() block.
+    $(document).ready(function () {
+        console.log("ready!");
+        {% if tab_active == 'home' %}
+            $('#home').addClass("is_active");
+        {% elif tab_active == 'contact' %}
+            $('#contact').addClass("is_active");
+        {% elif tab_active == 'about' %}
+            $('#about').addClass("is_active");
+        {% elif tab_active == 'giveaways' %}
+            $('#giveways').addClass("is_active");
+        {% elif tab_active == 'dashboard' %}
+            $('#dashboard').addClass("is_active");
+        {% elif tab_active == 'login' %}
+            $('#login').addClass("is_active");
+        {% endif %}
+    });
+</script>
+{% block jsblock %}
+<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+{% endblock %}
+{%  include 'tellme/js_inc.html' %}
+
+</body>
+</html>

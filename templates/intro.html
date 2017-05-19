@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+
+{% block contentblock %}
+
+        <div class="mdl-layout__tab-panel is-active" id="overview">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+
+            <div class="mdl-card mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+            <div class="mdl-color--orange-200" >
+              <div class="mdl-card__supporting-text ">
+                <h3>Features</h3>
+                  <h4>Giveaway Website Provides a Plateform to Pramot any Application or Product to share in social media like Facebook and twitter and Google+ for marketing purpose.
+                      any user can be registerd user and for pramoting any dacuments this website provides its prodile and dashborad so here he fill the products entries and upload them any other user share it 1 user achive a rating card and highest rating user find a free Product for useing
+                  </h4></div>
+            </div>
+            </div>
+          </section>
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp ">
+            <div class="mdl-card mdl-cell mdl-cell--12-col mdl-color--deep-orange-100 ">
+              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing ">
+                <h4 class="mdl-cell mdl-cell--12-col mdl-typography--font-black">Details</h4>
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--2-col-phone">
+                  <div class="section__circle-container__circle mdl-color--red-800"></div>
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                  <h4 >Create Giveaway</h4>
+                  <h5 > Any user can be creator so want to new App or Product can be create and Pramote this Plateform </h5>.
+                </div>
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                  <div class="section__circle-container__circle mdl-color--primary"></div>
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                  <h4> Share Giveaways And Collect Point</h4>
+                    <h5> Any user can get a giveaway free untill he don't share giveaways .Any user sare the giveaways to social media plateform and collect the rating </h5>
+                </div>
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                  <div class="section__circle-container__circle mdl-color--primary"></div>
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                    <div class="section__circle-container__circle mdl-color--yellow-300"></div>
+                  <h4>Win Giveaways</h4>
+                    <h5> Once a user share any giveaway the higher rating user is winner and download any giveaway for free</h5>
+                </div>
+              </div>
+              <div class="mdl-card__actions">
+                <a href="{% url 'products:view_giveaway' %}" class="mdl-button"> VIEW GIVEAWAY DETAIL</a>
+              </div>
+            </div>
+          </section>
+        </div>>
+{% endblock contentblock %}

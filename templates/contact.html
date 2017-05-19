@@ -1,0 +1,58 @@
+
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% block contentblock %}
+
+
+<style>
+
+    a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50px;
+  background: #03A9F4;
+  display: inline-block;
+  margin: 50px calc(50% - 21px);
+  white-space: nowrap;
+  padding: 13px;
+  box-sizing: border-box;
+  color: white;
+  -webkit-transition: all 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
+  transition: all 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
+  font-family: Roboto, sans-serif;
+  text-decoration: none;
+  box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.2);
+}
+a i {
+  margin-right: 20px;
+  -webkit-transition: margin-right 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
+  transition: margin-right 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+a:hover {
+  width: 134px;
+  -webkit-transform: translateX(-50px);
+          transform: translateX(-50px);
+}
+a:hover i {
+  margin-right: 10px;
+}
+
+</style>
+<form>
+  <h1>Material Design Contact Form with Validation</h1>
+  <input placeholder="Name" type="text"  value="" name="Name" required>
+  <input placeholder="Email address" type="email"  name="Email_address" onblur="this.setAttribute('value', this.value);" value="" required>
+  <span class="validation-text">Please enter a valid email address.</span>
+  <input placeholder="Location" type="text" value="" name="Location" required>
+  <div class="flex">
+    <textarea placeholder="Message" rows="1" name="Message"required></textarea>
+  </div>
+  <button>Send</button>
+</form>
+
+<a href="https://twitter.com/srktiwari" target="_blank"><i class="fa fa-twitter"></i>Follow Me</a>
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link href='http://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
+
+{% endblock %}

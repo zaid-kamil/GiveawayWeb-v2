@@ -1,0 +1,30 @@
+{% extends 'dashboard.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+
+{% block formblock %}
+
+    <style>
+    label{
+        font-size: small;
+    }
+    input[type=text],input[type=number]{
+        border:1px solid #999;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        margin: 1px;
+    }
+    </style>
+
+    <form action="{% url 'products:save_product' %}" method="post" enctype="multipart/form-data"
+    class="mdl-card mdl-card__actions">{% csrf_token %}
+        {{ form|crispy }}
+        <!-- Raised button with ripple -->
+        <br>
+        <input class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect"
+               type="submit"
+               value="save product">
+    </form>
+{% endblock %}
